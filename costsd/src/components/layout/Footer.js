@@ -8,8 +8,8 @@ function Footer() {
                 <li><FaFacebook/></li>
                 <li><FaInstagram/></li>
                 <li><FaLinkedin/></li>
-                <li>Costs 2021</li>
             </ul>
+            <p>Costs m 2021</p>
         </footer>
     )
 }

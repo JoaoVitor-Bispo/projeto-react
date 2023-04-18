@@ -6,4 +6,7 @@
 }
 .list {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
 }
