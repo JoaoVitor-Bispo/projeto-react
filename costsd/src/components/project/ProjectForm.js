@@ -5,12 +5,15 @@ import SubmitButton from '../pages/form/SubmitButton'
 import { useEffect, useState } from 'react'
 import NewProject from '../pages/NewProject'
 
-function ProjectForm(addProject) {
+function ProjectForm({addProject}) {
     const [projectData, setprojectData] = useState([])
 
     const getProject = (e) => {
         e.preventDefault()
-        addProject([...e.target.children])
+        setprojectData([...e.target.children])
+        projectData.map((element) => {
+            console.log(element.children[1] || [])
+        })   
     }
     const [jsonData, setjsonData] = useState([])
     useEffect(() => {
