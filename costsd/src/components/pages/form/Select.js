@@ -1,4 +1,5 @@
 import styles from './Select.module.css'
+import { useState, useEffect } from 'react';
 
 function Select({text, name, options, handleonchange, value}) {
     return (
@@ -6,6 +7,9 @@ function Select({text, name, options, handleonchange, value}) {
             <label htmlFor={name}>{text}:</label>
             <select name={name} id={name}>
                 <option disabled selected>Selecione uma opção</option>
+                {options.map((element) => (
+                    <option value={element.id} key={element.id}>{element.name}</option>
+                ))}
             </select>
         </div>
 
