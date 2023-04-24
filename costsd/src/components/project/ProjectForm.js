@@ -8,12 +8,20 @@ import NewProject from '../pages/NewProject'
 function ProjectForm({addProject}) {
     const [projectData, setprojectData] = useState([])
 
-    const getProject = (e) => {
+    const submitProject = (e) => {                                                                    
         e.preventDefault()
-        setprojectData([...e.target.children])
-        projectData.map((element) => {
-            console.log(element.children[1] || [])
-        })   
+        addProject(projectData)
+    }
+    function handleChange(e) {
+        setprojectData({...projectData, [e.target.name]: e.target.value})
+    }
+    function handleCategory(e) {
+        setprojectData({...projectData,
+            category: {
+                id: e.target.value,
+                name: e.target.options[e.target.selectedIndex].text
+            }
+        })
     }
     const [jsonData, setjsonData] = useState([])
     useEffect(() => {
@@ -30,12 +38,14 @@ function ProjectForm({addProject}) {
         .catch(error => console.log(error))
     }, [])
     return (
-        <form onSubmit={getProject} className={styles.form}>
-            <Input type='text' name='nomeProjeto' placeholder={"Insira o nome do projeto"} text={"Nome do Projeto"}/>
-            <Input type='number' name='orçamento' placeholder={"Insira o orçamento do projeto"} text={"Orçamento total"}/>
-            <Select name="id" text={"Selecione a categoria"} options={jsonData}/>
+        <form onSubmit={submitProject} className={styles.form}>
+            <Input type='text' name='nomeProjeto' placeholder={"Insira o nome do projeto"} text={"Nome do Projeto"} handleonchange={handleChange} value={projectData.nomeProjeto ? projectData.nomeProjeto : ''}/>
+
+            <Input type='number' name='orçamento' placeholder={"Insira o orçamento do projeto"} text={"Orçamento total"} handleonchange={handleChange} value={projectData.orçamento ? projectData.orçamento : ''}/>
+
+            <Select name="id" text={"Selecione a categoria"} options={jsonData} handleCategory={handleCategory} value={projectData.category ? projectData.category.id: ''}/>
             <SubmitButton text="Enviar Projeto"/>
         </form>
     )
 }
-export default ProjectForm
+export default ProjectForm;

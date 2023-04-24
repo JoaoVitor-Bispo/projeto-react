@@ -1,18 +1,27 @@
 import styles from './NewProject.module.css'
 import ProjectForm from '../project/ProjectForm'
+import {useNavigate} from 'react-router-dom'
+import Project from './Projects'
 
-function NewProject(project) {
-    function submitProject() {
+function NewProject() {
+    const navigate = useNavigate()
+    function submitProject(project) {
+        project.costs = 0
+        project.services = []
         fetch('http://localhost:5000/projects', {
             method: "POST",
             headers: {
-                'Content-type': 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(project)
         })
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            navigate('/projetos', {state: {
+                message: 'Projeto criado com sucesso'
+                }
+            })
         })
     }
     
