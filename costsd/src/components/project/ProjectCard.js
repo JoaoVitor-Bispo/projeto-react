@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 
 
 function ProjectCard({id, nome, orçamento, key, category, handleRemove}) {
+    const removePjt = e => {
+        e.preventDefault()
+        handleRemove(id)
+    }
     return (
         <div className={styles.project_card}>
             <h4>{nome}</h4>
@@ -14,8 +18,8 @@ function ProjectCard({id, nome, orçamento, key, category, handleRemove}) {
                 <span className={`${styles[category?.toLowerCase()]}`}></span>{category}
             </p>
             <div className={styles.projectCard_Actions}>
-                <Link to={'/'}><BsPencil/> Editar</Link>
-                <button onClick={handleRemove(id)}><BsFillTrashFill/> Remover</button>
+                <Link to={`/EditProject/${id}`}><BsPencil/> Editar</Link>
+                <button onClick={removePjt}><BsFillTrashFill/> Remover</button>
             </div>
         </div>
     )

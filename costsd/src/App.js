@@ -5,6 +5,8 @@ import Empresa from './components/pages/Empresa';
 import Home from './components/pages/Home'
 import NewProject from './components/pages/NewProject';
 import Project from './components/pages/Projects';
+import EditProject from './components/pages/EditProject';
+
 //Layout
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
@@ -22,6 +24,7 @@ function App() {
             <Route path='/empresa' element={<Empresa/>}/>
             <Route path='/contato' element={<Contato/>}/>
             <Route path='/newproject' element={<NewProject/>}/>
+            <Route path='/EditProject/:id' element={<EditProject/>}/>
           </Routes>
         </Container>
       </Router>
