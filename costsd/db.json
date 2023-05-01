@@ -1,14 +1,12 @@
 {
   "projects": [
     {
-      "nomeProjeto": "myProject1",
-      "orçamento": "-1",
+      "nomeProjeto": "ffff",
+      "orçamento": "-5",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "4",
+        "name": "Planejamento"
       },
-      "costs": 0,
-      "services": [],
       "id": 1
     }
   ],

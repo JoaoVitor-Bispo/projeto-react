@@ -34,15 +34,14 @@ function EditProject() {
         }, 3000);
     }, [id])
     
-    const [message, setMessage] = useState()
     const [typeMessage, setTypeMessage] = useState([])
+    const [message, setMessage] = useState()
 
     function editPost(project) {
         setMessage('')
         if(project.orçamento < project.costs) {
             setMessage('O valor do orçamento não pode ser menor que o valor total de gastos.')
             setTypeMessage('error')
-            stop()
             return false
         }
         fetch(`http://localhost:5000/projects/${id.id}`, {
@@ -70,7 +69,7 @@ function EditProject() {
             {project.nomeProjeto ? (
                 <div className={styles.project_details}>
                     <Container customClass='column'>
-                        {message && (<Message type={typeMessage} msg={message}/>)}
+                        {message ? (<Message type={typeMessage} msg={message}/>) : (console.log('testew'))}
                         <div className={styles.details_container}>
                             <h1>Projeto: {project.nomeProjeto}</h1>
                             <button className={styles.btn} onClick={toggleShowProject}>
@@ -78,7 +77,7 @@ function EditProject() {
                             </button>
                             {!showProject ? (
                                 <div className={styles.form}>
-                                    <p><span>Categoria: </span>{project.category.name}</p>
+                                    <p><span>Categoria: </span>{project?.category?.name}</p>
                                     <p><span>Orçamento: </span>R${project.orçamento}</p>
                                     <p><span>Total Gasto: </span>R${project.costs}</p>
                                 </div>
