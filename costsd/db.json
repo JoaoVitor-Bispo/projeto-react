@@ -1,12 +1,27 @@
 {
   "projects": [
     {
-      "nomeProjeto": "ffff",
-      "orçamento": "-5",
+      "nomeProjeto": "myProject1",
+      "orçamento": "3",
       "category": {
         "id": "4",
         "name": "Planejamento"
       },
+      "costs": 3,
+      "services": [
+        {
+          "nome": "Meu serviço",
+          "custo": "1",
+          "descriçao": "Teste de serviço",
+          "id": "84f4f4c9-847f-4c8e-9ffa-556148d30037"
+        },
+        {
+          "nome": "service 2",
+          "custo": "2",
+          "descriçao": "Teste de serviço",
+          "id": "0e9c19fc-ecee-4b48-af8f-a556cb122d51"
+        }
+      ],
       "id": 1
     }
   ],
