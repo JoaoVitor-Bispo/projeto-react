@@ -7,14 +7,8 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "costs": 3,
+      "costs": 2,
       "services": [
-        {
-          "nome": "Meu serviço",
-          "custo": "1",
-          "descriçao": "Teste de serviço",
-          "id": "84f4f4c9-847f-4c8e-9ffa-556148d30037"
-        },
         {
           "nome": "service 2",
           "custo": "2",
